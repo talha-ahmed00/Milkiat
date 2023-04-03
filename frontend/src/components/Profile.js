@@ -31,8 +31,9 @@ export default function Profile () {
         */
         
         const items = await Promise.all(transaction.map(async i => {
-            const tokenURI = await contract.tokenURI(i.tokenId);
-            let meta = await axios.get(tokenURI);
+        
+            let tokenURI = await contract.tokenURI(i.tokenId);
+            let meta = await axios.get(tokenURI.replace('https://gateway.pinata.cloud/ipfs', 'https://ipfs.io/ipfs'));
             meta = meta.data;
 
             let price = ethers.utils.formatUnits(i.price.toString(), 'ether');

@@ -1,0 +1,47 @@
+.marketplace-container {
+  min-height: 88.9vh;
+  background: linear-gradient(to right, #00358e, transparent),
+    url("../assets/asset1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 100px;
+}
+.marketplace-header span {
+  font-size: 96px;
+  color: white;
+}
+.light__text {
+  font-size: 96px;
+  color: white;
+  font-weight: 100;
+}
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.card_details {
+  padding: 10px 15px;
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+}
+.card_title {
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.card_price {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
