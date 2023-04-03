@@ -20,9 +20,9 @@ async function getNFTData(tokenId) {
     //Pull the deployed contract instance
     let contract = new ethers.Contract(MarketplaceJSON.address, MarketplaceJSON.abi, signer)
     //create an NFT Token
-    const tokenURI = await contract.tokenURI(tokenId);
     const listedToken = await contract.getListedTokenForId(tokenId);
-    let meta = await axios.get(tokenURI);
+    let tokenURI = await contract.tokenURI(tokenId);
+    let meta = await axios.get(tokenURI.replace('https://gateway.pinata.cloud/ipfs', 'https://ipfs.io/ipfs'));
     meta = meta.data;
     console.log(listedToken);
 
@@ -56,13 +56,14 @@ async function buyNFT(tokenId) {
         //Pull the deployed contract instance
         let contract = new ethers.Contract(MarketplaceJSON.address, MarketplaceJSON.abi, signer);
         const salePrice = ethers.utils.parseUnits(data.price, 'ether')
-        updateMessage("Buying the NFT... Please Wait (Upto 20 seconds)")
+        updateMessage("Buying the Property... Please Wait (Upto 20 seconds)")
         //run the executeSale function
         let transaction = await contract.executeSale(tokenId, {value:salePrice});
         await transaction.wait();
 
-        alert('You successfully bought the NFT!');
+        alert('You successfully bought the Property!');
         updateMessage("");
+        window.location.replace("/marketplace");
     }
     catch(e) {
         alert("Upload Error"+e)
