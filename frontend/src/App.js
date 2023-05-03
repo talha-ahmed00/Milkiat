@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar.js";
 import Marketplace from "./components/Marketplace";
 import Profile from "./components/Profile";
 import SellNFT from "./components/SellNFT";
-import NFTPage from "./components/NFTpage";
+import NFTPage from "./components/UnverifiedNFTpage";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

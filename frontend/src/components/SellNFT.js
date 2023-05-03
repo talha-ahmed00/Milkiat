@@ -85,11 +85,12 @@ export default function SellNFT() {
 
     //Upload data to IPFS
     try {
+      updateMessage("Uploading metadata to IPFS...");
       const metadataURL = await uploadMetadataToIPFS();
       //After adding your Hardhat network to your metamask, this code will get providers and signers
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-      updateMessage("Please wait.. uploading (upto 20 seconds)");
+      updateMessage("Connecting to the Marketplace contract...");
 
       //Pull the deployed contract instance
       let contract = new ethers.Contract(
@@ -97,13 +98,12 @@ export default function SellNFT() {
         Marketplace.abi,
         signer
       );
-      updateMessage("Please wait.. uploading (upto 20 seconds)");
+      updateMessage("Please wait...Creating Property Token (upto 20 seconds)");
       //massage the params to be sent to the create NFT request
       const price = ethers.utils.parseUnits(formParams.price, "ether");
-      updateMessage("Please wait.. uploading (upto 20 seconds)");
+    
       let listingPrice = await contract.getListPrice();
       listingPrice = listingPrice.toString();
-      updateMessage("Please wait.. uploading (upto 20 seconds)");
       console.log(listingPrice);
       console.log(metadataURL);
       //actually create the NFT
@@ -111,9 +111,7 @@ export default function SellNFT() {
         value: listingPrice,
       });
       await transaction.wait();
-      updateMessage("Please wait.. uploading (upto 20 seconds)");
-      alert("Successfully listed your Property!");
-      updateMessage("");
+      updateMessage("Successfully listed your Property!");
       updateFormParams({
         name: "",
         address: "",
@@ -123,7 +121,9 @@ export default function SellNFT() {
         bedrooms: "",
         yearbuilt: "",
       });
-      window.location.replace("/marketplace");
+      setTimeout(() => {
+        window.location.replace("/marketplace");
+      }, 5000); // Wait for 3 seconds before redirecting
     } catch (e) {
       alert("Upload error" + e);
     }
