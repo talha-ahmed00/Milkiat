@@ -19,7 +19,7 @@ async function main() {
       abi: JSON.parse(deployedMarketplace.interface.format('json'))
     }
 
-    fs.writeFileSync('./Malkiat/hardhat/Marketplace.json', JSON.stringify(data))
+    fs.writeFileSync('./hardhat/Marketplace.json', JSON.stringify(data))
   }
   
   main()
