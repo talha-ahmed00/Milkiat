@@ -39,13 +39,13 @@ function LandingSection() {
       <Navbar />
       <div className="marketplace-container">
         <div className="marketplace-header">
-          <p>
-            <span className="light__text">
-              Welcome to <br />{" "}
-            </span>{" "}
-            <br />
-            <span> Milkiat</span>
-          </p>
+        <p id="welcome-text" className="welcome-text">
+        Welcome to Milkiat
+        </p>
+        <p id="subheading-text" className="subheading-text">
+          Your Blockchain Pathway to Secure and Transparent Land Ownership and Real Estate Trading.
+        </p>
+
           {walletConnected ? (
             <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" onClick={goToMarketplace}>
               Go To Marketplace

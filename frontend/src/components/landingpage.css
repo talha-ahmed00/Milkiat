@@ -1,3 +1,23 @@
+#subheading-text {
+  font-size: 18px; /* Adjust to your needs */
+  line-height: 1.5;
+  font-weight: normal;
+  color: white;
+  margin-bottom: 20px; /* Adjust to your needs */
+}
+
+#welcome-text {
+  font-size: 90px;
+  font-weight: bold;
+  color: white;/* Adjust to your needs */
+}
+
+.marketplace-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 20px; /* Add some distance between subheading and button */
+}
 .marketplace-container {
   min-height: 88.9vh;
   background: linear-gradient(to right, #00358e, transparent),
@@ -11,7 +31,7 @@
   padding-left: 100px;
 }
 .marketplace-header span {
-  font-size: 96px;
+  font-size: 80px;
   color: white;
 }
 .light__text {
