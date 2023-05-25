@@ -1,5 +1,5 @@
-const key = `cac78480475f83deda67`;
-const secret = `612c8c794478b6c5b5ea63e97aa8d19104e936bfdc33473778d23c99c9b81e96`;
+const key = `51eadcbb41f636b02c75`;
+const secret = `e72161071d143ae2d32390eeac102a93b6f272edf30f75b2a335e3f5404bf372`;
 const JWT = process.env.Pinata_JWT;
 const axios = require("axios");
 const FormData = require("form-data");
